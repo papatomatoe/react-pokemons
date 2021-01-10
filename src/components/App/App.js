@@ -13,6 +13,8 @@ class App extends React.Component {
 
   render() {
 
+    const berryIcon = <img src='img/berry.svg' alt='icon' width='30px' />;
+
     const pokemonMenu = (
       <ItemList
         getData={this.API.getPokemons}
@@ -24,7 +26,7 @@ class App extends React.Component {
       <ItemList
         getData={this.API.getBerries}
         renderIcon={
-          () => <img src='img/berry.svg' alt='icon' width='30px' />
+          () => berryIcon
         }
       />
     )
