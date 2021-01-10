@@ -1,0 +1,26 @@
+.menu__item {
+  border: 2px solid #777777;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu__item:hover,
+.menu__item:focus {
+  background-color: #cfcfcf;
+} 
+
+.menu__item:active {
+  background-color: #a7a7a7;
+}
+
+.menu__item-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.menu__tile {
+  margin: 5px;
+}
