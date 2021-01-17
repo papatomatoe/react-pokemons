@@ -6,12 +6,14 @@ const Item = (props) => {
   const {
     item: {
       name = '',
+      id = '',
     } = {},
-    renderIcon = null
+    renderIcon = null,
+    getItemId
   } = props;
 
   return (
-    <li className='menu__item'>
+    <li className='menu__item' onClick={() => getItemId(id)}>
       <div className='menu__item-wrapper'>
         <p className='menu__tile'>{name}</p>
         {renderIcon && renderIcon()}

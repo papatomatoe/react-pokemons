@@ -2,42 +2,47 @@ import React from 'react';
 
 import Service from '../../service';
 import Panels from '../Panels';
-import ItemList from '../ItemList';
-import Icon from '../Icon';
+
+import {
+  PokemonMenu,
+  BerryMenu,
+  PokemonDetails,
+  BerryDetails
+} from '../pokemon-components';
 
 import './App.css';
 
 class App extends React.Component {
 
+  state = {
+    pokemonId: 1,
+    berryId: 1
+  }
+
   API = new Service();
 
+  getPokemonIdHandler = (id) => {
+    this.setState({ pokemonId: id });
+  }
+
+  getBerryIdHandler = (id) => {
+    this.setState({ berryId: id });
+  }
+
   render() {
-
-    const berryIcon = <img src='img/berry.svg' alt='icon' width='30px' />;
-
-    const pokemonMenu = (
-      <ItemList
-        getData={this.API.getPokemons}
-        renderIcon={() => <Icon />}
-      />
-    )
-
-    const berriesMenu = (
-      <ItemList
-        getData={this.API.getBerries}
-        renderIcon={
-          () => berryIcon
-        }
-      />
-    )
     return (
       <div className='container'>
-        <Panels left={pokemonMenu} right={'Pokemon Card'} />
-        <Panels left={berriesMenu} right={'Berry Card'} />
+        <Panels
+          left={<PokemonMenu getItemId={this.getPokemonIdHandler} />}
+          right={<PokemonDetails id={this.state.pokemonId} />}
+        />
+        <Panels
+          left={<BerryMenu getItemId={this.getBerryIdHandler} />}
+          right={<BerryDetails id={this.state.berryId} />}
+        />
       </div >
     );
   }
-
 }
 
 export default App;
