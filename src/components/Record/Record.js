@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Record.css';
 
@@ -10,6 +11,16 @@ const Record = (props) => {
       <p className='card__value'>{item[field]}</p>
     </li>
   );
+}
+
+Record.defaultProps = {
+  item: {}
+}
+
+Record.propTypes = {
+  label: PropTypes.string.isRequired,
+  field: PropTypes.string.isRequired,
+  item: PropTypes.object
 }
 
 export default Record;

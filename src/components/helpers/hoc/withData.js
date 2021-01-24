@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const withData = (Component, getData) => {
   return class extends React.Component {
@@ -17,5 +18,16 @@ const withData = (Component, getData) => {
     }
   }
 }
+
+withData.propsTypes = {
+  items: PropTypes.array.isRequired,
+  props: PropTypes.shape({
+    renderIcon: PropTypes.func,
+    getItemId: PropTypes.func.isRequired,
+  }).isRequired,
+  Component: PropTypes.elementType.isRequired,
+  getData: PropTypes.func.isRequired,
+}
+
 
 export { withData };

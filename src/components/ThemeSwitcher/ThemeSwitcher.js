@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Consumer } from '../helpers/context';
 
@@ -19,6 +20,10 @@ const ThemeSwitcher = (props) => {
       }
     </Consumer>
   );
+}
+
+ThemeSwitcher.propTypes = {
+  switchTheme: PropTypes.func.isRequired
 }
 
 export default ThemeSwitcher;

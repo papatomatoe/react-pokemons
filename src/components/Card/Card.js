@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Consumer } from '../helpers/context';
 
@@ -36,10 +37,25 @@ const Card = (props) => {
         )
       }
     </Consumer>
-
-
-
   );
 }
+
+Card.defaultProps = {
+  nightTheme: false,
+};
+
+Card.propTypes = {
+  nightTheme: PropTypes.bool,
+  item: PropTypes.shape({
+    name: PropTypes.string,
+    sprites: PropTypes.shape({
+      other: PropTypes.shape({
+        'official-artwork': PropTypes.shape({
+          front_default: PropTypes.string
+        })
+      })
+    })
+  }).isRequired
+};
 
 export default Card;

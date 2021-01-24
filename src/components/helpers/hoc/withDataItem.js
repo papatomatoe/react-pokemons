@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const withDataItem = (Component, getData) => {
   return class extends React.Component {
@@ -24,5 +25,17 @@ const withDataItem = (Component, getData) => {
 
   }
 };
+
+withDataItem.propsTypes = {
+  item: PropTypes.object.isRequired,
+  props: PropTypes.shape({
+    id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ])
+  }).isRequired,
+  Component: PropTypes.elementType.isRequired,
+  getData: PropTypes.func.isRequired,
+}
 
 export { withDataItem };

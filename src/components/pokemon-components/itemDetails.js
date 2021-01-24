@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import Card from '../Card';
 import Record from '../Record';
 
@@ -31,5 +33,19 @@ const BerryCard = (props) => {
 
 const PokemonDetails = withDataItem(PokemonCard, getOnePokemon);
 const BerryDetails = withDataItem(BerryCard, getOneBerry);
+
+PokemonCard.propTypes = {
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired
+};
+
+BerryCard.propTypes = {
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired
+};
 
 export { PokemonDetails, BerryDetails };

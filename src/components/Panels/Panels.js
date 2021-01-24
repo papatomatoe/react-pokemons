@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import './Panels.css';
 
 const Panels = (props) => {
@@ -12,5 +14,10 @@ const Panels = (props) => {
     </div>
   );
 };
+
+Panels.propTypes = {
+  left: PropTypes.node.isRequired,
+  right: PropTypes.node.isRequired,
+}
 
 export default Panels;
