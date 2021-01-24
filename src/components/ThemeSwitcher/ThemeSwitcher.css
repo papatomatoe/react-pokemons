@@ -1,0 +1,50 @@
+.theme {
+  width: 150px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.theme__input {
+  display: none;
+}
+
+.theme__control {
+  border: 2px solid black;
+  width: 40px;
+  height: 20px;
+
+  border-radius: 15px;
+  position: relative;
+}
+
+.theme__control::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #000000;
+  border-radius: 50%;
+
+  top: 1px;
+  left: 1px;
+  transition: all 0.07s linear;
+}
+
+.theme__input:checked ~ .theme__label {
+  color: #ffffff;
+}
+
+.theme__input:checked ~ .theme__control {
+  border-color: #ffffff;
+}
+
+.theme__input:checked ~ .theme__control::after {
+  left: 21px;
+  background-color: #ffffff;
+  transition: all 0.07s linear;
+}
+
+

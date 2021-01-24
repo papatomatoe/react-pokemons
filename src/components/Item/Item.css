@@ -24,3 +24,22 @@
 .menu__tile {
   margin: 5px;
 }
+
+.menu__item--night {
+  color: #ffffff;
+
+  border-color: #ffffff;
+  background-color: #000000;
+
+  background-image: linear-gradient(to right, rgb(0, 0, 20), rgb(0, 0, 134));
+}
+
+.menu__item--night:hover,
+.menu__item--night:focus {
+  background-color: #1b1b1b;
+  background-image: none;
+} 
+
+.menu__item--night:active {
+  background-color: #5f5f5f;
+}

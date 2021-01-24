@@ -1,4 +1,5 @@
 import React from 'react';
+import { Consumer } from '../helpers/context';
 
 import './Item.css';
 
@@ -9,16 +10,22 @@ const Item = (props) => {
       id = '',
     } = {},
     renderIcon = null,
-    getItemId
+    getItemId,
   } = props;
 
   return (
-    <li className='menu__item' onClick={() => getItemId(id)}>
-      <div className='menu__item-wrapper'>
-        <p className='menu__tile'>{name}</p>
-        {renderIcon && renderIcon()}
-      </div>
-    </li>
+    <Consumer>
+      {
+        (nightTheme) => (
+          <li className={`menu__item ${nightTheme ? 'menu__item--night' : ''}`} onClick={() => getItemId(id)}>
+            <div className='menu__item-wrapper'>
+              <p className='menu__tile'>{name}</p>
+              {renderIcon && renderIcon()}
+            </div>
+          </li>
+        )
+      }
+    </Consumer>
   );
 }
 
